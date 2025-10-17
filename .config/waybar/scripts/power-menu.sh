@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Power menu using wofi
+# Power menu usando wofi
 
-options="󰗼 Logout\n󰜉 Restart\n󰐥 Shutdown"
+options="󰌾 Lock\n󰗼 Logout\n󰜉 Restart\n󰐥 Shutdown"
 
-selected=$(echo -e "$options" | wofi --dmenu --prompt "Power Menu" --width 300 --height 200)
+selected=$(echo -e "$options" | wofi --dmenu --prompt "Power Menu" --width 300 --height 250)
 
 case $selected in
+    "󰌾 Lock")
+        hyprlock
+        ;;
     "󰗼 Logout")
         hyprctl dispatch exit
         ;;

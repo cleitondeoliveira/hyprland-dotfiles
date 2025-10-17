@@ -15,6 +15,8 @@ Custom Hyprland Wayland compositor configuration for Arch Linux.
 This repository contains configurations for:
 
 - **Hyprland** - Dynamic tiling Wayland compositor
+- **Hyprlock** - Lockscreen with clean white theme and auto-lock after 3 minutes
+- **Hypridle** - Idle management daemon
 - **Waybar** - Highly customizable status bar
 - **Kitty** - Fast and modern terminal emulator with custom theme
 - **Bash** - Custom .bashrc with modern prompt, git integration and aliases
@@ -28,7 +30,7 @@ This repository contains configurations for:
 Before installing, make sure you have the following packages installed:
 
 ```bash
-sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm
+sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm hyprlock hypridle
 yay -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
 ```
 
@@ -68,6 +70,8 @@ hyprctl reload
 │   ├── hypr/
 │   │   ├── hyprland.conf      # Main Hyprland configuration
 │   │   ├── hyprpaper.conf     # Wallpaper configuration
+│   │   ├── hyprlock.conf      # Lockscreen configuration
+│   │   ├── hypridle.conf      # Idle management (auto-lock)
 │   │   └── autostart.conf     # Apps that start automatically
 │   ├── waybar/
 │   │   ├── config.jsonc       # Waybar configuration
@@ -104,6 +108,7 @@ Some common shortcuts:
 - `Super + E` - Open file manager
 - `Super + R` - Open launcher
 - `Super + F` - Fullscreen mode
+- `Super + Escape` - Power menu (Lock/Logout/Restart/Shutdown)
 - `Super + Shift + E` - Exit Hyprland
 
 ## Customization
@@ -113,6 +118,8 @@ Feel free to modify the configurations according to your preferences:
 - **Colors and themes**: Edit CSS files in waybar and wofi
 - **Keybindings**: Modify `hypr/hyprland.conf`
 - **Wallpaper**: Change in `hypr/hyprpaper.conf`
+- **Lockscreen**: Customize in `hypr/hyprlock.conf`
+- **Auto-lock timing**: Adjust in `hypr/hypridle.conf` (default: 3 minutes)
 - **Terminal**: Configure in `kitty/kitty.conf`
 - **Shell prompt**: Customize in `.bashrc` (includes git status, aliases, and functions)
 
