@@ -16,7 +16,8 @@ This repository contains configurations for:
 
 - **Hyprland** - Dynamic tiling Wayland compositor
 - **Waybar** - Highly customizable status bar
-- **Kitty** - Fast and modern terminal emulator
+- **Kitty** - Fast and modern terminal emulator with custom theme
+- **Bash** - Custom .bashrc with modern prompt, git integration and aliases
 - **Wofi** - Application launcher for Wayland
 - **Dunst** - Notification daemon
 - **Fonts** - Font configuration (Ubuntu Nerd Font and JetBrainsMono Nerd Font)
@@ -78,6 +79,7 @@ hyprctl reload
 │   ├── wofi/
 │   │   ├── config             # Wofi configuration
 │   │   └── style.css          # Wofi styles
+├── .bashrc                     # Bash configuration with custom prompt
 │   ├── dunst/
 │   │   └── dunstrc            # Notification configuration
 │   ├── fontconfig/
@@ -112,6 +114,7 @@ Feel free to modify the configurations according to your preferences:
 - **Keybindings**: Modify `hypr/hyprland.conf`
 - **Wallpaper**: Change in `hypr/hyprpaper.conf`
 - **Terminal**: Configure in `kitty/kitty.conf`
+- **Shell prompt**: Customize in `.bashrc` (includes git status, aliases, and functions)
 
 ## Backup
 

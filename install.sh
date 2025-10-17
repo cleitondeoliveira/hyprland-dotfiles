@@ -68,6 +68,18 @@ if [ -d "$CONFIG_DIR/waybar/scripts" ]; then
     echo "🔧 Waybar scripts made executable"
 fi
 
+# Install .bashrc
+if [ -f "$HOME/.bashrc" ]; then
+    echo "📦 Backing up .bashrc..."
+    cp "$HOME/.bashrc" "$HOME/.bashrc.bak"
+fi
+
+if [ -f "$DOTFILES_DIR/.bashrc" ]; then
+    echo "📋 Installing .bashrc..."
+    cp "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+    echo "   ✓ .bashrc installed"
+fi
+
 echo ""
 echo "=================================="
 echo "  ✓ Installation complete!        "
@@ -76,6 +88,8 @@ echo ""
 echo "Next steps:"
 echo "1. Restart Hyprland: press Super+Shift+E and login again"
 echo "2. Or run: hyprctl reload"
+echo "3. Open a new terminal to load the new .bashrc"
 echo ""
 echo "Your backups are at: $BACKUP_DIR"
+echo ".bashrc backup: ~/.bashrc.bak"
 echo ""
