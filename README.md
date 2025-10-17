@@ -12,13 +12,14 @@ Este repositório contém configurações para:
 - **Wofi** - Launcher de aplicativos para Wayland
 - **Dunst** - Daemon de notificações
 - **Fontes** - Configuração de fontes (Ubuntu Nerd Font e JetBrainsMono Nerd Font)
+- **SDDM** - Tema Astronaut customizado
 
-## Pré-requisitos
+
 
 Antes de instalar, certifique-se de ter os seguintes pacotes instalados:
 
 ```bash
-sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst
+sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm
 yay -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
 ```
 
@@ -111,6 +112,19 @@ Para restaurar um backup:
 ```bash
 cp -r ~/.config-backup-YYYYMMDD-HHMMSS/* ~/.config/
 ```
+
+## SDDM Theme
+
+Este repositório inclui configurações customizadas do tema **SDDM Astronaut**.
+
+Para instalar o tema SDDM (requer root):
+```bash
+cd sddm
+sudo ./install-sddm.sh
+```
+
+### Créditos
+- **SDDM Astronaut Theme** por [Keyitdev](https://github.com/Keyitdev/sddm-astronaut-theme)
 
 ## Contribuindo
 
