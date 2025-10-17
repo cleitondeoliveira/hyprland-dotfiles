@@ -9,15 +9,17 @@ Este repositório contém configurações para:
 - **Hyprland** - Compositor Wayland dinâmico com tiling
 - **Waybar** - Barra de status altamente customizável
 - **Kitty** - Terminal emulador rápido e moderno
-- **Rofi** - Launcher de aplicativos
-- **Wofi** - Launcher alternativo para Wayland
+- **Wofi** - Launcher de aplicativos para Wayland
+- **Dunst** - Daemon de notificações
+- **Fontes** - Configuração de fontes (Ubuntu Nerd Font e JetBrainsMono Nerd Font)
 
 ## Pré-requisitos
 
 Antes de instalar, certifique-se de ter os seguintes pacotes instalados:
 
 ```bash
-sudo pacman -S hyprland waybar kitty rofi wofi hyprpaper
+sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst
+yay -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
 ```
 
 ## Instalação
@@ -64,11 +66,15 @@ hyprctl reload
 │   │       └── power-menu.sh  # Menu de energia
 │   ├── kitty/
 │   │   └── kitty.conf         # Configuração do terminal
-│   ├── rofi/
-│   │   └── config.rasi        # Tema e config do rofi
-│   └── wofi/
-│       ├── config             # Configuração do wofi
-│       └── style.css          # Estilos do wofi
+│   ├── wofi/
+│   │   ├── config             # Configuração do wofi
+│   │   └── style.css          # Estilos do wofi
+│   ├── dunst/
+│   │   └── dunstrc            # Configuração de notificações
+│   ├── fontconfig/
+│   │   └── fonts.conf         # Configuração de fontes
+│   └── xsettingsd/
+│       └── xsettingsd.conf    # Configuração GTK
 ├── install.sh                  # Script de instalação
 └── README.md                   # Este arquivo
 ```
