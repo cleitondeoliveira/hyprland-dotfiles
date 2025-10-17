@@ -41,7 +41,7 @@ install_config() {
 }
 
 # Lista de configurações
-configs=("hypr" "waybar" "kitty" "rofi" "wofi")
+configs=("hypr" "waybar" "kitty" "wofi" "dunst" "fontconfig" "xsettingsd")
 
 # Fazer backup das configurações existentes
 echo "Verificando configurações existentes..."
