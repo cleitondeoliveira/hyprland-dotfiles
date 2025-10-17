@@ -13,6 +13,49 @@ echo "  Hyprland Dotfiles - Install     "
 echo "=================================="
 echo ""
 
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" &> /dev/null
+}
+
+# Function to check dependencies
+check_dependencies() {
+    echo "Checking dependencies..."
+    local missing_deps=()
+
+    # Essential dependencies
+    local deps=("hyprland" "waybar" "kitty" "wofi" "hyprpaper" "dunst" "hyprlock" "hypridle")
+
+    for dep in "${deps[@]}"; do
+        if ! command_exists "$dep"; then
+            missing_deps+=("$dep")
+        fi
+    done
+
+    if [ ${#missing_deps[@]} -gt 0 ]; then
+        echo "❌ Missing dependencies detected:"
+        for dep in "${missing_deps[@]}"; do
+            echo "   - $dep"
+        done
+        echo ""
+        echo "Please install missing dependencies first:"
+        echo "sudo pacman -S ${missing_deps[*]}"
+        echo ""
+        read -p "Do you want to continue anyway? (y/N) " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Installation cancelled."
+            exit 1
+        fi
+    else
+        echo "✓ All dependencies found"
+    fi
+    echo ""
+}
+
+# Check dependencies before proceeding
+check_dependencies
+
 # Function to create backup
 backup_config() {
     local config_name=$1
@@ -20,8 +63,14 @@ backup_config() {
 
     if [ -e "$config_path" ]; then
         echo "📦 Backing up $config_name..."
-        mkdir -p "$BACKUP_DIR"
-        cp -r "$config_path" "$BACKUP_DIR/"
+        mkdir -p "$BACKUP_DIR" || {
+            echo "❌ Error: Failed to create backup directory"
+            exit 1
+        }
+        cp -r "$config_path" "$BACKUP_DIR/" || {
+            echo "❌ Error: Failed to backup $config_name"
+            exit 1
+        }
         echo "   Backup saved at: $BACKUP_DIR/$config_name"
     fi
 }
@@ -34,9 +83,17 @@ install_config() {
 
     if [ -d "$source_path" ]; then
         echo "📋 Installing $config_name..."
-        mkdir -p "$CONFIG_DIR"
-        cp -r "$source_path" "$CONFIG_DIR/"
+        mkdir -p "$CONFIG_DIR" || {
+            echo "❌ Error: Failed to create config directory"
+            exit 1
+        }
+        cp -r "$source_path" "$CONFIG_DIR/" || {
+            echo "❌ Error: Failed to install $config_name"
+            exit 1
+        }
         echo "   ✓ $config_name installed"
+    else
+        echo "⚠️  Warning: $source_path not found, skipping..."
     fi
 }
 
@@ -64,20 +121,44 @@ done
 
 # Make scripts executable
 if [ -d "$CONFIG_DIR/waybar/scripts" ]; then
-    chmod +x "$CONFIG_DIR/waybar/scripts/"*.sh
+    chmod +x "$CONFIG_DIR/waybar/scripts/"*.sh 2>/dev/null || {
+        echo "⚠️  Warning: Failed to make some waybar scripts executable"
+    }
     echo "🔧 Waybar scripts made executable"
 fi
 
 # Install .bashrc
 if [ -f "$HOME/.bashrc" ]; then
     echo "📦 Backing up .bashrc..."
-    cp "$HOME/.bashrc" "$HOME/.bashrc.bak"
+    cp "$HOME/.bashrc" "$HOME/.bashrc.bak" || {
+        echo "⚠️  Warning: Failed to backup .bashrc"
+    }
 fi
 
 if [ -f "$DOTFILES_DIR/.bashrc" ]; then
     echo "📋 Installing .bashrc..."
-    cp "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+    cp "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc" || {
+        echo "❌ Error: Failed to install .bashrc"
+        exit 1
+    }
+    chmod 644 "$HOME/.bashrc" || {
+        echo "⚠️  Warning: Failed to set .bashrc permissions"
+    }
     echo "   ✓ .bashrc installed"
+fi
+
+# Verify script permissions
+echo ""
+echo "🔒 Verifying script permissions..."
+if [ -d "$CONFIG_DIR/waybar/scripts" ]; then
+    for script in "$CONFIG_DIR/waybar/scripts/"*.sh; do
+        if [ -f "$script" ]; then
+            if [ ! -x "$script" ]; then
+                echo "⚠️  Warning: $script is not executable"
+            fi
+        fi
+    done
+    echo "   ✓ Permissions verified"
 fi
 
 echo ""

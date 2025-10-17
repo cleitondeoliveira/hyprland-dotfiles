@@ -1,5 +1,10 @@
 # Hyprland Dotfiles
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff)](https://archlinux.org/)
+[![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-blue)](https://hyprland.org/)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/cleitondeoliveira/hyprland-dotfiles/graphs/commit-activity)
+
 Custom Hyprland Wayland compositor configuration for Arch Linux.
 
 ## Screenshots
@@ -111,6 +116,16 @@ Some common shortcuts:
 - `Super + Escape` - Power menu (Lock/Logout/Restart/Shutdown)
 - `Super + Shift + E` - Exit Hyprland
 
+## Environment Variables
+
+The following environment variables are configured in `hypr/hyprland.conf`:
+
+- `GDK_SCALE=2` - Enables 2x scaling for GTK applications (useful for HiDPI displays)
+- `XCURSOR_SIZE=24` - Sets the cursor size to 24 pixels
+- `QT_QPA_PLATFORMTHEME=qt5ct` - Uses qt5ct for QT application theming
+
+These can be adjusted in `.config/hypr/hyprland.conf` according to your display and preferences.
+
 ## Customization
 
 Feel free to modify the configurations according to your preferences:
@@ -122,6 +137,7 @@ Feel free to modify the configurations according to your preferences:
 - **Auto-lock timing**: Adjust in `hypr/hypridle.conf` (default: 3 minutes)
 - **Terminal**: Configure in `kitty/kitty.conf`
 - **Shell prompt**: Customize in `.bashrc` (includes git status, aliases, and functions)
+- **Environment variables**: Adjust display scaling and theming in `hypr/hyprland.conf`
 
 ## Backup
 
