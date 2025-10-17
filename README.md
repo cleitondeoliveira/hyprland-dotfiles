@@ -2,6 +2,14 @@
 
 Custom Hyprland Wayland compositor configuration for Arch Linux.
 
+## Screenshots
+
+![Desktop with btop](screenshots/desktop-btop.png)
+*Desktop with btop, fastfetch and system monitoring*
+
+![Desktop with Wofi](screenshots/desktop-wofi.png)
+*Wofi launcher and file manager*
+
 ## Components
 
 This repository contains configurations for:
