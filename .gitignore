@@ -1,0 +1,16 @@
+# Arquivos temporários
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Backups
+*.bak
+*.backup
+
+# Cache
+__pycache__/
+*.pyc

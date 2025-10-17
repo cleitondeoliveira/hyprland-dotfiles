@@ -1,0 +1,106 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "spacing": 4,
+    "margin-top": 8,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-bottom": 0,
+    
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "custom/power"],
+    
+    "custom/launcher": {
+        "format": "",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+	    "1": "",
+    	    "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+    	    "urgent": "",
+            "active": "",
+            "default": "○"
+        }
+    },
+    
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%A, %d de %B de %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#a6e3a1'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'>{}</span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰋋 {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+    
+    "network": {
+        "format-wifi": "󰖩",
+        "format-ethernet":"󰖩",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "on-click": "nm-connection-editor"
+    },
+    
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "headphone": "󰕾",
+            "hands-free": "󰕾",
+            "headset": "󰕾",
+            "phone": "󰕾",
+            "portable": "󰕾",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}\nPower: {power}W"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/waybar/scripts/power-menu.sh",
+        "tooltip": false
+    }
+}
