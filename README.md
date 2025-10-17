@@ -25,7 +25,7 @@ sudo pacman -S hyprland waybar kitty rofi wofi hyprpaper
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/hyprland-dotfiles.git
+git clone https://github.com/cleitondeoliveira/hyprland-dotfiles.git
 cd hyprland-dotfiles
 ```
 
@@ -116,7 +116,3 @@ Contribuições são bem-vindas! Sinta-se livre para:
 ## Licença
 
 MIT License - Sinta-se livre para usar e modificar.
-
----
-
-**Gerado com [Claude Code](https://claude.com/claude-code)**

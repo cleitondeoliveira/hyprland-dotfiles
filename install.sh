@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Script de instalação das configurações Hyprland
-# Autor: Gerado com Claude Code
 
 set -e
 
