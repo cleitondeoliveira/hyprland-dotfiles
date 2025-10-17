@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Power menu usando wofi
+# Power menu using wofi
 
 options="󰗼 Logout\n󰜉 Restart\n󰐥 Shutdown"
 

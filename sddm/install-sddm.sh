@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script de instalação do tema SDDM Astronaut
+# SDDM Astronaut theme installation script
 
 set -e
 
@@ -9,50 +9,50 @@ echo "  SDDM Astronaut Theme - Install  "
 echo "=================================="
 echo ""
 
-# Verificar se está rodando como root
+# Check if running as root
 if [ "$EUID" -ne 0 ]; then
-    echo "❌ Este script precisa ser executado como root (sudo)"
+    echo "❌ This script needs to be run as root (sudo)"
     exit 1
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Instalar o tema astronaut
+# Install astronaut theme
 if [ ! -d "/usr/share/sddm/themes/astronaut" ]; then
-    echo "📦 Instalando tema SDDM Astronaut..."
+    echo "📦 Installing SDDM Astronaut theme..."
     cd /usr/share/sddm/themes/
     git clone https://github.com/Keyitdev/sddm-astronaut-theme.git astronaut
-    echo "   ✓ Tema instalado"
+    echo "   ✓ Theme installed"
 else
-    echo "✓ Tema astronaut já instalado"
+    echo "✓ Astronaut theme already installed"
 fi
 
-# Copiar configuração customizada
-echo "📋 Aplicando configuração customizada..."
+# Copy custom configuration
+echo "📋 Applying custom configuration..."
 cp "$SCRIPT_DIR/astronaut/Themes/astronaut.conf" /usr/share/sddm/themes/astronaut/Themes/
-echo "   ✓ Configuração do tema aplicada"
+echo "   ✓ Theme configuration applied"
 
-# Copiar wallpaper customizado
-echo "🖼️  Aplicando wallpaper customizado..."
+# Copy custom wallpaper
+echo "🖼️  Applying custom wallpaper..."
 cp "$SCRIPT_DIR/astronaut/Backgrounds/imagem2.png" /usr/share/sddm/themes/astronaut/Backgrounds/
-echo "   ✓ Wallpaper aplicado"
+echo "   ✓ Wallpaper applied"
 
-# Copiar configuração do SDDM
-echo "⚙️  Configurando SDDM..."
+# Copy SDDM configuration
+echo "⚙️  Configuring SDDM..."
 mkdir -p /etc/sddm.conf.d
 cp "$SCRIPT_DIR/sddm.conf.d/theme.conf" /etc/sddm.conf.d/
-echo "   ✓ SDDM configurado"
+echo "   ✓ SDDM configured"
 
-# Criar symlink do theme.conf
+# Create theme.conf symlink
 if [ ! -L "/usr/share/sddm/themes/astronaut/theme.conf" ]; then
     ln -sf /usr/share/sddm/themes/astronaut/Themes/astronaut.conf /usr/share/sddm/themes/astronaut/theme.conf
-    echo "   ✓ Symlink criado"
+    echo "   ✓ Symlink created"
 fi
 
 echo ""
 echo "=================================="
-echo "  ✓ Instalação concluída!         "
+echo "  ✓ Installation complete!        "
 echo "=================================="
 echo ""
-echo "O tema será aplicado no próximo logout/reboot."
+echo "The theme will be applied on next logout/reboot."
 echo ""

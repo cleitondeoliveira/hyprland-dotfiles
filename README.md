@@ -1,138 +1,142 @@
 # Hyprland Dotfiles
 
-Configurações personalizadas do Hyprland compositor Wayland para Arch Linux.
+Custom Hyprland Wayland compositor configuration for Arch Linux.
 
-## Componentes
+## Components
 
-Este repositório contém configurações para:
+This repository contains configurations for:
 
-- **Hyprland** - Compositor Wayland dinâmico com tiling
-- **Waybar** - Barra de status altamente customizável
-- **Kitty** - Terminal emulador rápido e moderno
-- **Wofi** - Launcher de aplicativos para Wayland
-- **Dunst** - Daemon de notificações
-- **Fontes** - Configuração de fontes (Ubuntu Nerd Font e JetBrainsMono Nerd Font)
-- **SDDM** - Tema Astronaut customizado
+- **Hyprland** - Dynamic tiling Wayland compositor
+- **Waybar** - Highly customizable status bar
+- **Kitty** - Fast and modern terminal emulator
+- **Wofi** - Application launcher for Wayland
+- **Dunst** - Notification daemon
+- **Fonts** - Font configuration (Ubuntu Nerd Font and JetBrainsMono Nerd Font)
+- **SDDM** - Customized Astronaut theme
 
+## Prerequisites
 
-
-Antes de instalar, certifique-se de ter os seguintes pacotes instalados:
+Before installing, make sure you have the following packages installed:
 
 ```bash
 sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm
 yay -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
 ```
 
-## Instalação
+## Installation
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/cleitondeoliveira/hyprland-dotfiles.git
 cd hyprland-dotfiles
 ```
 
-### 2. Execute o script de instalação
+### 2. Run the installation script
 
 ```bash
 ./install.sh
 ```
 
-O script irá:
-- Fazer backup automático das suas configurações atuais
-- Instalar as novas configurações em `~/.config/`
-- Tornar os scripts executáveis
+The script will:
+- Automatically backup your current configurations
+- Install the new configurations in `~/.config/`
+- Make scripts executable
 
-### 3. Reinicie o Hyprland
+### 3. Restart Hyprland
 
-Pressione `Super+Shift+E` e faça login novamente, ou execute:
+Press `Super+Shift+E` and login again, or run:
 
 ```bash
 hyprctl reload
 ```
 
-## Estrutura do Repositório
+## Repository Structure
 
 ```
 .
 ├── .config/
 │   ├── hypr/
-│   │   ├── hyprland.conf      # Configuração principal do Hyprland
-│   │   ├── hyprpaper.conf     # Configuração do wallpaper
-│   │   └── autostart.conf     # Apps que iniciam automaticamente
+│   │   ├── hyprland.conf      # Main Hyprland configuration
+│   │   ├── hyprpaper.conf     # Wallpaper configuration
+│   │   └── autostart.conf     # Apps that start automatically
 │   ├── waybar/
-│   │   ├── config.jsonc       # Configuração do waybar
-│   │   ├── style.css          # Estilos do waybar
+│   │   ├── config.jsonc       # Waybar configuration
+│   │   ├── style.css          # Waybar styles
 │   │   └── scripts/
-│   │       └── power-menu.sh  # Menu de energia
+│   │       └── power-menu.sh  # Power menu
 │   ├── kitty/
-│   │   └── kitty.conf         # Configuração do terminal
+│   │   └── kitty.conf         # Terminal configuration
 │   ├── wofi/
-│   │   ├── config             # Configuração do wofi
-│   │   └── style.css          # Estilos do wofi
+│   │   ├── config             # Wofi configuration
+│   │   └── style.css          # Wofi styles
 │   ├── dunst/
-│   │   └── dunstrc            # Configuração de notificações
+│   │   └── dunstrc            # Notification configuration
 │   ├── fontconfig/
-│   │   └── fonts.conf         # Configuração de fontes
+│   │   └── fonts.conf         # Font configuration
 │   └── xsettingsd/
-│       └── xsettingsd.conf    # Configuração GTK
-├── install.sh                  # Script de instalação
-└── README.md                   # Este arquivo
+│       └── xsettingsd.conf    # GTK configuration
+├── sddm/
+│   ├── astronaut/             # SDDM theme customizations
+│   ├── install-sddm.sh        # SDDM installation script
+│   └── sddm.conf.d/           # SDDM configuration
+├── install.sh                  # Installation script
+└── README.md                   # This file
 ```
 
-## Atalhos Principais
+## Key Bindings
 
-Confira o arquivo `.config/hypr/hyprland.conf` para ver todos os atalhos configurados.
+Check the `.config/hypr/hyprland.conf` file to see all configured keybindings.
 
-Alguns atalhos comuns:
-- `Super + Q` - Fechar janela
-- `Super + T` - Abrir terminal
-- `Super + E` - Abrir gerenciador de arquivos
-- `Super + R` - Abrir launcher
-- `Super + F` - Modo fullscreen
-- `Super + Shift + E` - Sair do Hyprland
+Some common shortcuts:
+- `Super + Q` - Close window
+- `Super + T` - Open terminal
+- `Super + E` - Open file manager
+- `Super + R` - Open launcher
+- `Super + F` - Fullscreen mode
+- `Super + Shift + E` - Exit Hyprland
 
-## Personalização
+## Customization
 
-Sinta-se livre para modificar as configurações de acordo com suas preferências:
+Feel free to modify the configurations according to your preferences:
 
-- **Cores e temas**: Edite os arquivos CSS no waybar e wofi
-- **Atalhos**: Modifique `hypr/hyprland.conf`
-- **Wallpaper**: Altere em `hypr/hyprpaper.conf`
-- **Terminal**: Configure em `kitty/kitty.conf`
+- **Colors and themes**: Edit CSS files in waybar and wofi
+- **Keybindings**: Modify `hypr/hyprland.conf`
+- **Wallpaper**: Change in `hypr/hyprpaper.conf`
+- **Terminal**: Configure in `kitty/kitty.conf`
 
 ## Backup
 
-O script de instalação cria automaticamente backups em:
+The installation script automatically creates backups in:
 ```
 ~/.config-backup-YYYYMMDD-HHMMSS/
 ```
 
-Para restaurar um backup:
+To restore a backup:
 ```bash
 cp -r ~/.config-backup-YYYYMMDD-HHMMSS/* ~/.config/
 ```
 
 ## SDDM Theme
 
-Este repositório inclui configurações customizadas do tema **SDDM Astronaut**.
+This repository includes custom configurations for the **SDDM Astronaut** theme.
 
-Para instalar o tema SDDM (requer root):
+To install the SDDM theme (requires root):
 ```bash
 cd sddm
 sudo ./install-sddm.sh
 ```
 
-### Créditos
-- **SDDM Astronaut Theme** por [Keyitdev](https://github.com/Keyitdev/sddm-astronaut-theme)
+### Credits
+- **SDDM Astronaut Theme** by [Keyitdev](https://github.com/Keyitdev/sddm-astronaut-theme)
 
-## Contribuindo
+## Contributing
 
-Contribuições são bem-vindas! Sinta-se livre para:
-- Reportar bugs
-- Sugerir melhorias
-- Enviar pull requests
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest improvements
+- Submit pull requests
 
-## Licença
+## License
 
-MIT License - Sinta-se livre para usar e modificar.
+MIT License - Feel free to use and modify.
