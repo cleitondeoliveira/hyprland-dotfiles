@@ -1,3 +1,4 @@
+
 * {
   border: none;
   border-radius: 4px;
@@ -11,9 +12,8 @@
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: transparent;
   color: #ffffff;
-  border-radius: 10px;
 }
 
 #workspaces button {
@@ -89,7 +89,7 @@ window#waybar {
 #idle_inhibitor,
 #mpd {
   padding: 0 10px;
-  margin: 6px 3px;
+  margin: 6px 0;
   color: #000000;
   font-size: 11px;
 }
@@ -102,6 +102,9 @@ window#waybar {
 
 #workspaces {
   margin: 0 4px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 2px 8px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -115,18 +118,26 @@ window#waybar {
 }
 
 #clock {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  border-radius: 10px;
+  padding: 0 15px;
+  margin: 6px 10px;
 }
 
 #battery {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  border-radius: 0 10px 10px 0;
+  padding: 0 10px;
+  margin: 6px 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #battery.charging {
   color: #ffffff;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 @keyframes blink {
@@ -151,13 +162,23 @@ label:focus {
 }
 
 #cpu {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
+  border-radius: 0;
+  padding: 0 10px;
+  margin: 6px 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #memory {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  border-radius: 0 0 0 0;
+  padding: 0 10px;
+  margin: 6px 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #backlight {
@@ -166,8 +187,12 @@ label:focus {
 }
 
 #network {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  border-radius: 10px 0 0 10px;
+  padding: 0 10px;
+  margin: 6px 0 6px 10px;
+  margin-right: 0;
 }
 
 #network.disconnected {
@@ -175,12 +200,16 @@ label:focus {
 }
 
 #pulseaudio {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
+  border-radius: 10px 0 0 10px;
+  padding: 0 15px;
+  margin: 6px 0 6px 10px;
+  margin-right: 0;
 }
 
 #pulseaudio.muted {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
 }
 
@@ -203,12 +232,14 @@ label:focus {
 }
 
 #temperature.critical {
-  background-color: #eb4d4b; 
+  background-color: #eb4d4b;
 }
 
 #tray {
-  background-color: #1e90ff;
-  margin-right: 8px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 0 10px;
+  margin: 6px 10px 6px 5px;
 }
 
 #idle_inhibitor {
