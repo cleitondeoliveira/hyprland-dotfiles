@@ -15,6 +15,9 @@ Custom Hyprland Wayland compositor configuration for Arch Linux.
 ![Desktop with Wofi](screenshots/desktop-wofi.png)
 *Wofi launcher and file manager*
 
+![Desktop Extra](screenshots/desktop-extra.png)
+*Additional desktop view*
+
 ## Components
 
 This repository contains configurations for:
