@@ -13,6 +13,20 @@ echo "  Hyprland Dotfiles - Install     "
 echo "=================================="
 echo ""
 
+# Check if running on Arch Linux
+if ! command -v pacman &> /dev/null; then
+    echo "⚠️  Warning: This script was designed for Arch Linux"
+    echo "   Some features may not work on other distributions"
+    echo ""
+    read -p "Do you want to continue anyway? (y/N) " -n 1 -r
+    echo ""
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Installation cancelled."
+        exit 1
+    fi
+    echo ""
+fi
+
 # Function to check if a command exists
 command_exists() {
     command -v "$1" &> /dev/null

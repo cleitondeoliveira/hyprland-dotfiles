@@ -37,10 +37,60 @@ This repository contains configurations for:
 
 Before installing, make sure you have the following packages installed:
 
+### Required Dependencies
+
+Install all required packages with a single command:
+
 ```bash
-sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm hyprlock hypridle
+# Core packages (from official repositories)
+sudo pacman -S hyprland waybar kitty wofi hyprpaper dunst sddm hyprlock hypridle \
+               polkit-gnome network-manager-applet blueman grim slurp satty \
+               brightnessctl playerctl xdg-desktop-portal-hyprland qt5ct
+
+# Fonts (from AUR)
 yay -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
 ```
+
+### Optional Dependencies
+
+These packages enhance functionality but are not strictly required:
+
+```bash
+sudo pacman -S thunar          # File manager (can use any alternative)
+sudo pacman -S chromium        # Web browser (can use any alternative)
+```
+
+### Dependency Breakdown
+
+**Essential components:**
+- `hyprland` - Dynamic tiling Wayland compositor
+- `waybar` - Status bar
+- `kitty` - Terminal emulator
+- `wofi` - Application launcher
+- `hyprpaper` - Wallpaper daemon
+- `dunst` - Notification daemon
+- `hyprlock` - Lock screen
+- `hypridle` - Idle management daemon
+
+**System integration:**
+- `polkit-gnome` - Authentication agent
+- `network-manager-applet` - Network management tray
+- `blueman` - Bluetooth manager
+- `xdg-desktop-portal-hyprland` - Desktop portal for Wayland
+- `qt5ct` - Qt5 configuration tool
+
+**Screenshot tools:**
+- `grim` - Screenshot utility
+- `slurp` - Region selector
+- `satty` - Screenshot editor
+
+**Media/Display control:**
+- `brightnessctl` - Backlight control
+- `playerctl` - Media player control
+
+**Fonts:**
+- `ttf-ubuntu-nerd` - Ubuntu Nerd Font
+- `ttf-jetbrains-mono-nerd` - JetBrains Mono Nerd Font
 
 ## Installation
 
