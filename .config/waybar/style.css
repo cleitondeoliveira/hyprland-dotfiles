@@ -3,7 +3,7 @@
   border: none;
   border-radius: 4px;
   /* `ttf-font-awesome` is required to be installed for icons */
-  font-family: "JetBrains Mono Nerd Font", Helvetica, Arial, sans-serif;
+  font-family: "JetBrains Mono Nerd Font";
 
   /* adjust font-size value to your liking: */
   font-size: 12px;
@@ -91,7 +91,7 @@ window#waybar {
   padding: 0 10px;
   margin: 6px 0;
   color: #000000;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 #window {
@@ -101,10 +101,10 @@ window#waybar {
 }
 
 #workspaces {
-  margin: 0 4px;
+  margin: 6px 4px;
   background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
-  padding: 2px 8px;
+  border-radius: 8px;
+  padding: 0 8px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -120,15 +120,15 @@ window#waybar {
 #clock {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 0 15px;
-  margin: 6px 10px;
+  margin: 6px 6px;
 }
 
 #battery {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 8px 8px 0;
   padding: 0 10px;
   margin: 6px 0;
   margin-left: 0;
@@ -189,7 +189,7 @@ label:focus {
 #network {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
   padding: 0 10px;
   margin: 6px 0 6px 10px;
   margin-right: 0;
@@ -202,7 +202,7 @@ label:focus {
 #pulseaudio {
   background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
   padding: 0 15px;
   margin: 6px 0 6px 10px;
   margin-right: 0;
@@ -237,9 +237,9 @@ label:focus {
 
 #tray {
   background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0 10px;
-  margin: 6px 10px 6px 5px;
+  margin: 6px 2px 6px 5px;
 }
 
 #idle_inhibitor {
